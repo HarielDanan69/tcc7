@@ -1,0 +1,26 @@
+GET http://localhost:5000/notes
+
+###
+POST http://localhost:5000/notes
+Content-Type: application/json
+
+{
+    "judul": "Catatan Test REST",
+    "event": "Testing REST",
+    "tanggal": "3 Maret 2025",
+    "catatan": "Ini adalah testing REST di VS Code"
+}
+
+###
+PATCH http://localhost:5000/notes/3
+Content-Type: application/json
+
+{
+    "judul": "Catatan Test REST - UpPatch",
+    "event": "Testing REST",
+    "tanggal": "3 Maret 2025",
+    "catatan": "Ini adalah testing REST di VS Code"
+}
+
+###
+DELETE http://localhost:5000/notes/4

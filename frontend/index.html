@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Notes</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const token = localStorage.getItem("accessToken");
+      if (!token) {
+        window.location.href = "login.html";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul class="unlist">
+          <li class="logo">
+            <img src="./Assets/images/logo_upn_tcc.png" alt="logo upn" />
+          </li>
+          <li class="judul_web">WEB CATATAN SEDERHANA</li>
+          <li class="nav_hide"></li>
+        </ul>
+      </nav>
+    </header>
+    <form id="noteForm">
+      <p>Simpan dan Update Catatan</p>
+      <input type="text" id="judul" placeholder="Judul" required />
+      <input type="text" id="event" placeholder="Event" required />
+      <input type="date" id="tanggal" required />
+      <textarea id="catatan" placeholder="Catatan" required></textarea>
+      <button type="submit" class="subm">Simpan Catatan</button>
+    </form>
+    <div class="judul_list">
+      <p>Daftar Catatan Tersimpan</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Judul</th>
+          <th>Event</th>
+          <th>Tanggal</th>
+          <th>Catatan</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="noteList"></tbody>
+    </table>
+    <button onclick="logout()">Logout</button>
+    <script src="./js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchNotes();
+      });
+    </script>
+  </body>
+</html>

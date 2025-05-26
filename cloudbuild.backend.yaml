@@ -1,0 +1,32 @@
+steps:
+  # Komponen 1
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/notes-be069", "."]
+    dir: "backend"
+
+  # Komponen 2
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/notes-be069"]
+
+  # Komponen 3
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: gcloud
+    args:
+      [
+        "run",
+        "deploy",
+        "notes-be069",
+        "--image",
+        "gcr.io/$PROJECT_ID/notes-be069",
+        "--timeout",
+        "1000s",
+        "--port",
+        "5000",
+        "--region",
+        "us-central1",
+        "--allow-unauthenticated",
+      ]
+
+# Komponen 4
+options:
+  logging: CLOUD_LOGGING_ONLY
