@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:5000";
+const baseUrl = " https://notes-be069-499088901156.us-central1.run.app";
 const noteUrl = `${baseUrl}/notes`;
 const loginUrl = `${baseUrl}/login`;
 const registerUrl = `${baseUrl}/register`;
