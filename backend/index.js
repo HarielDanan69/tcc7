@@ -8,7 +8,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 dotenv.config();
-app.use(cors({ credentials: true, origin: "http://127.0.0.1:5500" }));
+app.use(cors({ credentials: true, origin: "https://fe-069-dot-f-04-460503.uc.r.appspot.com" }));
 app.use(cookieParser());
 
 app.use(express.json());
